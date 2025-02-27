@@ -1,15 +1,15 @@
 import sumar from "./sumador";
 
-const first = document.querySelector("#primer-numero");
-const second = document.querySelector("#segundo-numero");
-const form = document.querySelector("#sumar-form");
-const div = document.querySelector("#resultado-div");
+const cant_item = document.querySelector("#cant-item");
+const div = document.querySelector("#mostrar");
+const botonTotalizar = document.querySelector("#totalizador-button");
 
-form.addEventListener("submit", (event) => {
+botonTotalizar.addEventListener("click", (event) => {
   event.preventDefault();
-
-  const firstNumber = Number.parseInt(first.value);
-  const secondNumber = Number.parseInt(second.value);
-
-  div.innerHTML = "<p>" + sumar(firstNumber, secondNumber) + "</p>";
+  const cantidad = Number.parseInt(cant_item.value);
+  div.innerHTML = "<p>" + cantidad + "</p>";
 });
+
+
+  
+

@@ -1,15 +1,13 @@
-import sumar from "./sumador";
-
-const cant_item = document.querySelector("#cant-item");
+const cantidad_items = document.querySelector("#cant_item");
+const precio_items = document.querySelector("#precio_item");
+const form = document.querySelector("#totalizador_form");
 const div = document.querySelector("#mostrar");
-const botonTotalizar = document.querySelector("#totalizador-button");
 
-botonTotalizar.addEventListener("click", (event) => {
+form.addEventListener("submit", (event) => {
   event.preventDefault();
-  const cantidad = Number.parseInt(cant_item.value);
-  div.innerHTML = "<p>" + cantidad + "</p>";
+
+  const cantidad = Number.parseInt(cantidad_items.value);
+  const precio = Number.parseInt(precio_items.value);
+
+  div.innerHTML = "<p>"+ "cantidad: "+ cantidad + "</p>" + "<p>"+ "precio: " + precio+ "</p>";
 });
-
-
-  
-

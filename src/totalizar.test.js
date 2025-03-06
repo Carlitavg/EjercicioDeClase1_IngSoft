@@ -1,6 +1,6 @@
 import totalizar from "./totalizar.js";
 
-describe("Totalizar", () => {
+describe("Totalizar venta neta", () => {
   it("deberia Multiplicar dos numeros", () => {
     expect(totalizar(3, 2)).toEqual(6);
   });

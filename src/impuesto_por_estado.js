@@ -1,4 +1,4 @@
-function impuesto(codigo_estado) {
+export function impuesto(codigo_estado) {
     const descuentos = {
         UT: 6.65,
         NV: 8.00,
@@ -10,6 +10,8 @@ function impuesto(codigo_estado) {
     return descuentos[codigo_estado]
     
   }
-  
-  export default impuesto;
-  
+
+export function valor_impuesto(impuesto, valor_neto){
+    return (impuesto / 100) * valor_neto
+  }
+

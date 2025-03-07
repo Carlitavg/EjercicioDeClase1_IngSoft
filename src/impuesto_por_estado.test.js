@@ -4,4 +4,7 @@ describe("Impuesto por estado", () => {
   it("para el codigo de estado UT deberia devolver el porcentaje 6.65%", () => {
     expect(impuesto("UT")).toEqual(6.65);
   });
+  it("para el codigo de estado 'NV' deberia devolver el porcentaje 8.00%", () => {
+    expect(impuesto("NV")).toEqual(8.00);
+  });
 });

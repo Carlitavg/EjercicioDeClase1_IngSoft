@@ -1,4 +1,4 @@
-import totalizar from "./totalizar.js";
+import { totalizar, totalizar_con_impuesto } from "./totalizar.js";
 import { impuesto, valor_impuesto } from "./impuesto_por_estado.js";
 
 const cantidad_items = document.querySelector("#cant_item");
@@ -14,13 +14,14 @@ form.addEventListener("submit", (event) => {
   const precio = Number.parseInt(precio_items.value);
   const total = totalizar(cantidad, precio);
   const estado = codigo_estados.options[codigo_estados.selectedIndex].text;
-  const tasa = impuesto('UT');
-  const impuesto_valor = valor_impuesto(tasa, total).toFixed(2);
-  console.log(impuesto_valor);
+  const tasa = impuesto(estado);
+  const impuesto_valor = Number(valor_impuesto(tasa, total).toFixed(2));
+  const total_impuesto = totalizar_con_impuesto(total, impuesto_valor);
 
   // div.innerHTML = "<p>" + "cantidad: " + cantidad + "</p>" + 
   //                 "<p>" + "precio: " + precio + "</p>" + 
   //                 "<p>" + "Total neto: " + total + "</p>";
   div.innerHTML = "<p>"+ "Precio Neto: ("+ cantidad  + " * $" + precio + "): $"+ total+ "</p>" +
-                  "<p>" + "Impuesto para " + estado + " (%"+ tasa + "): " + impuesto_valor + "</p>";
+                  "<p>" + "Impuesto para " + estado + " (%"+ tasa + "): " + impuesto_valor + "</p>" +
+                  "<p>" + "Precio total (+impuesto): $"+ total_impuesto;
   });

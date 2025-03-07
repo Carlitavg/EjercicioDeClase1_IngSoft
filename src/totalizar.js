@@ -1,6 +1,12 @@
-function totalizar(a, b) {
+export function totalizar(a, b) {
     return a * b;
   }
   
-  export default totalizar;
-  
+export function totalizar_con_impuesto(neto, impuesto) {
+    return impuesto + neto;
+}
+
+
+
+
+

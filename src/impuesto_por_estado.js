@@ -1,17 +1,13 @@
 function impuesto(codigo_estado) {
-    if(codigo_estado == "NV"){
-        return 8.00
-    }
-    if(codigo_estado == "TX"){
-        return 6.25
-    }
-    if(codigo_estado == "AL"){
-        return 4.00
-    }
-    if(codigo_estado == "CA"){
-        return 8.25
-    }
-    return 6.65
+    const descuentos = {
+        UT: 6.65,
+        NV: 8.00,
+        TX: 6.25,
+        AL: 4.00,
+        CA: 8.25
+      };
+    
+      return descuentos[codigo_estado]
     
   }
   

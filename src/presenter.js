@@ -1,4 +1,5 @@
 import totalizar from "./totalizar.js";
+import impuesto from "./impuesto_por_estado.js";
 
 const cantidad_items = document.querySelector("#cant_item");
 const precio_items = document.querySelector("#precio_item");
@@ -18,5 +19,5 @@ form.addEventListener("submit", (event) => {
   //                 "<p>" + "precio: " + precio + "</p>" + 
   //                 "<p>" + "Total neto: " + total + "</p>";
   div.innerHTML = "<p>"+ "Precio Neto: ("+ cantidad  + " * $" + precio + "): $"+ total+ "</p>" +
-                  "<p>" + "Estado: " + estado + "</p>";
+                  "<p>" + "Estado: " + estado + ", porcentaje de impuesto: "+ impuesto(estado) + "%" +"</p>";
 });

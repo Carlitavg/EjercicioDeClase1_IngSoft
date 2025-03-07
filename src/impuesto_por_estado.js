@@ -5,9 +5,9 @@ function impuesto(codigo_estado) {
         TX: 6.25,
         AL: 4.00,
         CA: 8.25
-      };
+    };
     
-      return descuentos[codigo_estado]
+    return descuentos[codigo_estado]
     
   }
   

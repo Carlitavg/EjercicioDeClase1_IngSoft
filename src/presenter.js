@@ -15,7 +15,7 @@ form.addEventListener("submit", (event) => {
   const total = totalizar(cantidad, precio);
   const estado = codigo_estados.options[codigo_estados.selectedIndex].text;
   const tasa = impuesto('UT');
-  const impuesto_valor = valor_impuesto(tasa, total);
+  const impuesto_valor = valor_impuesto(tasa, total).toFixed(2);
   console.log(impuesto_valor);
 
   // div.innerHTML = "<p>" + "cantidad: " + cantidad + "</p>" + 

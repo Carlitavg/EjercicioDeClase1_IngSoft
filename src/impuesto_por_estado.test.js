@@ -13,4 +13,7 @@ describe("Impuesto por estado", () => {
   it("para el codigo de estado 'AL' deberia devolver el porcentaje 4.00%", () => {
     expect(impuesto("AL")).toEqual(4.00);
   });
+  it("para el codigo de estado 'CA' deberia devolver el porcentaje 8.25%", () => {
+    expect(impuesto("CA")).toEqual(8.25);
+  });
 });

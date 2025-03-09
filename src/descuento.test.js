@@ -41,9 +41,12 @@ describe("Sumar", () => {
     expect(descuento(30660)).toEqual(15);
     expect(descuento(100660)).toEqual(15);
   });
-  it("para la cantidad de 1000 deberia devolver el descuento segun el precio neto", () => {
-    expect(valor_descuento(3, 1100)).toEqual(33);
+  it("deveria devolver el descuento del precio neto para valores q corresponda", () => {
+    expect(valor_descuento(descuento(1100), 1100)).toEqual(33);
+    expect(valor_descuento(descuento(10000), 10000)).toEqual(1000);
   });
+
+  
 
 });
 

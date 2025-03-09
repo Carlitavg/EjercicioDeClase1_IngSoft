@@ -13,18 +13,18 @@ form.addEventListener("submit", (event) => {
 
   const cantidad = Number.parseInt(cantidad_items.value);
   const precio = Number.parseInt(precio_items.value);
-  const total = totalizar(cantidad, precio);
+  const precio_neto = totalizar(cantidad, precio);
   const estado = codigo_estados.options[codigo_estados.selectedIndex].text;
   const tasa = impuesto(estado);
-  const impuesto_valor = Number(valor_impuesto(tasa, total).toFixed(2));
-  const total_impuesto = totalizar_con_impuesto(total, impuesto_valor);
-  const porcentaje_descuento = descuento (total);
+  const impuesto_valor = Number(valor_impuesto(tasa, precio_neto).toFixed(2));
+  const total_impuesto = totalizar_con_impuesto(precio_neto, impuesto_valor);
+  const porcentaje_descuento = descuento (precio_neto);
 
   // div.innerHTML = "<p>" + "cantidad: " + cantidad + "</p>" + 
   //                 "<p>" + "precio: " + precio + "</p>" + 
   //                 "<p>" + "Total neto: " + total + "</p>";
-  div.innerHTML = "<p>"+ "Precio Neto: ("+ cantidad  + " * $" + precio + "): $"+ total+ "</p>" +
-                  "<p>" + "Descuento (" + porcentaje_descuento + " %) " + "</p>" +
+  div.innerHTML = "<p>"+ "Precio Neto: ("+ cantidad  + " * $" + precio + "): $"+ precio_neto+ "</p>" +
+                  "<p>" + "Descuento (" + porcentaje_descuento + " %): " + "</p>" +
                   "<p>" + "Impuesto para " + estado + " (%"+ tasa + "): " + impuesto_valor + "</p>" +
                   "<p>" + "Precio total (+impuesto): $"+ total_impuesto;
   });

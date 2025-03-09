@@ -1,4 +1,4 @@
-function descuento(precio) {
+export function descuento(precio) {
     // if(precio < 1000 )
     // {
     //     return 0
@@ -17,5 +17,9 @@ function descuento(precio) {
            precio >= 1000  ? 3  : 0;
   }
   
-  export default descuento;
+  export function valor_descuento(porsentaje_descuento, valor_neto){
+    return (porsentaje_descuento / 100) * valor_neto
+  }
+
+
   

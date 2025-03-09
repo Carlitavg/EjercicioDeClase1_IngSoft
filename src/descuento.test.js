@@ -1,4 +1,4 @@
-import descuento from "./descuento.js";
+import {descuento, valor_descuento} from "./descuento.js";
 
 describe("Sumar", () => {
   it("deberia devolver 3% de descuento para montos iguales a 1000", () => {
@@ -41,5 +41,9 @@ describe("Sumar", () => {
     expect(descuento(30660)).toEqual(15);
     expect(descuento(100660)).toEqual(15);
   });
+  it("para la cantidad de 1000 deberia devolver el descuento segun el precio neto", () => {
+    expect(valor_descuento(3, 1100)).toEqual(33);
+  });
+
 });
 

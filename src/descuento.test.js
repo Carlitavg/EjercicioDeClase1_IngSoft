@@ -22,5 +22,9 @@ describe("Sumar", () => {
   it("deberia devolver 7% de descuento para montos iguales a 7000", () => {
     expect(descuento(7000)).toEqual(7);
   });
+  it("deberia devolver 7% de descuento para montos iguales y mayores a 7000", () => {
+    expect(descuento(7010)).toEqual(7);
+    expect(descuento(7660)).toEqual(7);
+  });
 });
 

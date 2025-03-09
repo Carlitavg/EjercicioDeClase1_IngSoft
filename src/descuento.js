@@ -1,8 +1,9 @@
 function descuento(precio) {
-    if(precio >= 1000 )
+    if(precio < 1000 )
     {
-        return 3;
+        return 0
     }
+    return 3
     
   }
   

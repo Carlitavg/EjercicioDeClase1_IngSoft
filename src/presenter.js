@@ -7,6 +7,7 @@ const precio_items = document.querySelector("#precio_item");
 const form = document.querySelector("#totalizador_form");
 const div = document.querySelector("#mostrar");
 const codigo_estados = document.querySelector("#cod_estados");
+const categoria_productos = document.querySelector("#categorias_productos");
 
 form.addEventListener("submit", (event) => {
   event.preventDefault();
@@ -28,6 +29,7 @@ form.addEventListener("submit", (event) => {
   const total_impuesto = totalizar_con_impuesto(total_descuento, valor_impuesto);
 
   const precio_total = totalizar_con_descuento_impuesto(total_descuento, valor_impuesto);
+  const categoria = categoria_productos.options[categoria_productos.selectedIndex].text;
 
   // div.innerHTML = "<p>" + "cantidad: " + cantidad + "</p>" + 
   //                 "<p>" + "precio: " + precio + "</p>" + 
@@ -35,6 +37,7 @@ form.addEventListener("submit", (event) => {
   div.innerHTML = "<p>"+ "Precio Neto: ("+ cantidad  + " * $" + precio + "): $"+ precio_neto+ "</p>" +
                   "<p>" + "Descuento (" + porcentaje_descuento + " %): " + valor_descuento +"</p>" +
                   "<p>" + "Impuesto para " + estado + " (%"+ tasa + "): " + valor_impuesto + "</p>" +
-                  "<p>" + "Precio total (descuento e impuesto): $"+ precio_total;
+                  "<p>" + "Precio total (descuento e impuesto): $"+ precio_total + "</p>" +
+                  "<p>" + "Categoria de producto: "+ categoria + "</p>";
   });
   

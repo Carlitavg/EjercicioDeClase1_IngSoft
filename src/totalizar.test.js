@@ -28,4 +28,19 @@ describe("Totalizar venta total - impuesto", () => {
   it("deberia totalizar la venta neta con el descuento según el monto neto < 1000", () => {
     expect(totalizar_con_descuento(100, 0)).toEqual(100);
   });
+  it("deberia totalizar la venta neta con el descuento según el monto neto 1000-3000", () => {
+    expect(totalizar_con_descuento(1000, 30)).toEqual(970);
+  });
+  it("deberia totalizar la venta neta con el descuento según el monto neto 3000-7000", () => {
+    expect(totalizar_con_descuento(3000, 150)).toEqual(2850);
+  });
+  it("deberia totalizar la venta neta con el descuento según el monto neto 7000-10000", () => {
+    expect(totalizar_con_descuento(7000, 490)).toEqual(6510);
+  });
+  it("deberia totalizar la venta neta con el descuento según el monto neto 10000-30000", () => {
+    expect(totalizar_con_descuento(10000, 1000)).toEqual(9000);
+  });
+  it("deberia totalizar la venta neta con el descuento según el monto neto 10000-30000", () => {
+    expect(totalizar_con_descuento(30000, 4500)).toEqual(25500);
+  });
 });

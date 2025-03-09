@@ -1,8 +1,8 @@
-import { totalizar, totalizar_con_descuento, totalizar_con_impuesto, totalizar_con_descuento_impuesto } from "./totalizar.js";
+import { totalizar_neto, totalizar_con_descuento, totalizar_con_impuesto, totalizar_con_descuento_impuesto } from "./totalizar.js";
 
 describe("Totalizar venta neta", () => {
   it("deberia Multiplicar dos numeros", () => {
-    expect(totalizar(3, 2)).toEqual(6);
+    expect(totalizar_neto(3, 2)).toEqual(6);
   });
 });
 

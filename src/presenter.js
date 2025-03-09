@@ -1,6 +1,6 @@
-import { totalizar, totalizar_con_impuesto } from "./totalizar.js";
-import { impuesto, valor_impuesto } from "./impuesto_por_estado.js";
-import {descuento, valor_descuento} from "./descuento.js";
+import { totalizar_neto, totalizar_con_impuesto, totalizar_con_descuento, totalizar_con_descuento_impuesto } from "./totalizar.js";
+import { get_impuesto, get_valor_impuesto } from "./impuesto_por_estado.js";
+import { get_descuento, get_valor_descuento } from "./descuento.js";
 
 const cantidad_items = document.querySelector("#cant_item");
 const precio_items = document.querySelector("#precio_item");
@@ -13,19 +13,28 @@ form.addEventListener("submit", (event) => {
 
   const cantidad = Number.parseInt(cantidad_items.value);
   const precio = Number.parseInt(precio_items.value);
-  const precio_neto = totalizar(cantidad, precio);
+  const precio_neto = totalizar_neto(cantidad, precio);
+  console.log(precio_neto);
+  
   const estado = codigo_estados.options[codigo_estados.selectedIndex].text;
-  const tasa = impuesto(estado);
-  const impuesto_valor = Number(valor_impuesto(tasa, precio_neto).toFixed(2));
-  const total_impuesto = totalizar_con_impuesto(precio_neto, impuesto_valor);
-  const porcentaje_descuento = descuento (precio_neto);
-  const descuento_total = valor_descuento(porcentaje_descuento, precio_neto);
+  
+  const porcentaje_descuento = get_descuento (precio_neto);
+  const valor_descuento = get_valor_descuento(porcentaje_descuento, precio_neto);
+  const total_descuento = totalizar_con_descuento(precio_neto, valor_descuento);
+  console.log(total_descuento);
+ 
+  const tasa = get_impuesto(estado);
+  const valor_impuesto = Number(get_valor_impuesto(tasa, total_descuento).toFixed(2));
+  const total_impuesto = totalizar_con_impuesto(total_descuento, valor_impuesto);
+
+  const precio_total = totalizar_con_descuento_impuesto(total_descuento, valor_impuesto);
 
   // div.innerHTML = "<p>" + "cantidad: " + cantidad + "</p>" + 
   //                 "<p>" + "precio: " + precio + "</p>" + 
   //                 "<p>" + "Total neto: " + total + "</p>";
   div.innerHTML = "<p>"+ "Precio Neto: ("+ cantidad  + " * $" + precio + "): $"+ precio_neto+ "</p>" +
-                  "<p>" + "Descuento (" + porcentaje_descuento + " %): " + descuento_total +"</p>" +
-                  "<p>" + "Impuesto para " + estado + " (%"+ tasa + "): " + impuesto_valor + "</p>" +
-                  "<p>" + "Precio total (+impuesto): $"+ total_impuesto;
+                  "<p>" + "Descuento (" + porcentaje_descuento + " %): " + valor_descuento +"</p>" +
+                  "<p>" + "Impuesto para " + estado + " (%"+ tasa + "): " + valor_impuesto + "</p>" +
+                  "<p>" + "Precio total (descuento e impuesto): $"+ precio_total;
   });
+  

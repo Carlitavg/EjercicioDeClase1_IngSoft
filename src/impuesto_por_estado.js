@@ -1,4 +1,4 @@
-export function impuesto(codigo_estado) {
+export function get_impuesto(codigo_estado) {
     const impuesto = {
         UT: 6.65,
         NV: 8.00,
@@ -11,7 +11,7 @@ export function impuesto(codigo_estado) {
     
   }
 
-export function valor_impuesto(impuesto, valor_neto){
+export function get_valor_impuesto(impuesto, valor_neto){
     return (impuesto / 100) * valor_neto
   }
 

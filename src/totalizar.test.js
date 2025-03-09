@@ -24,7 +24,7 @@ describe("Totalizar venta total + impuesto", () => {
   });
 });
 
-describe("Totalizar venta total - impuesto", () => {
+describe("Totalizar venta total - descuento", () => {
   it("deberia totalizar la venta neta con el descuento según el monto neto < 1000", () => {
     expect(totalizar_con_descuento(100, 0)).toEqual(100);
   });

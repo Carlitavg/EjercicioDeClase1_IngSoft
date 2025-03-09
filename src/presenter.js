@@ -1,5 +1,6 @@
 import { totalizar, totalizar_con_impuesto } from "./totalizar.js";
 import { impuesto, valor_impuesto } from "./impuesto_por_estado.js";
+import descuento from "./descuento.js";
 
 const cantidad_items = document.querySelector("#cant_item");
 const precio_items = document.querySelector("#precio_item");
@@ -17,11 +18,13 @@ form.addEventListener("submit", (event) => {
   const tasa = impuesto(estado);
   const impuesto_valor = Number(valor_impuesto(tasa, total).toFixed(2));
   const total_impuesto = totalizar_con_impuesto(total, impuesto_valor);
+  const porcentaje_descuento = descuento (total);
 
   // div.innerHTML = "<p>" + "cantidad: " + cantidad + "</p>" + 
   //                 "<p>" + "precio: " + precio + "</p>" + 
   //                 "<p>" + "Total neto: " + total + "</p>";
   div.innerHTML = "<p>"+ "Precio Neto: ("+ cantidad  + " * $" + precio + "): $"+ total+ "</p>" +
+                  "<p>" + "Descuento (" + porcentaje_descuento + " %) " + "</p>" +
                   "<p>" + "Impuesto para " + estado + " (%"+ tasa + "): " + impuesto_valor + "</p>" +
                   "<p>" + "Precio total (+impuesto): $"+ total_impuesto;
   });

@@ -1,5 +1,9 @@
 function descuento(precio) {
-    return 3;
+    if(precio >= 1000 )
+    {
+        return 3;
+    }
+    
   }
   
   export default descuento;

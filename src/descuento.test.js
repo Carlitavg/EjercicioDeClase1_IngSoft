@@ -46,7 +46,5 @@ describe("Sumar", () => {
     expect(valor_descuento(descuento(10000), 10000)).toEqual(1000);
   });
 
-  
-
 });
 

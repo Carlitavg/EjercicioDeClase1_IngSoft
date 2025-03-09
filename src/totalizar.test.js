@@ -1,4 +1,4 @@
-import { totalizar, totalizar_con_impuesto } from "./totalizar.js";
+import { totalizar, totalizar_con_descuento, totalizar_con_impuesto } from "./totalizar.js";
 
 describe("Totalizar venta neta", () => {
   it("deberia Multiplicar dos numeros", () => {
@@ -21,5 +21,11 @@ describe("Totalizar venta total + impuesto", () => {
   });
   it("deberia multiplicar la venta neta con el impuesto para estado de CA", () => {
     expect(totalizar_con_impuesto(100, 8.25)).toEqual(108.25);
+  });
+});
+
+describe("Totalizar venta total - impuesto", () => {
+  it("deberia totalizar la venta neta con el descuento según el monto neto < 1000", () => {
+    expect(totalizar_con_descuento(100, 0)).toEqual(100);
   });
 });

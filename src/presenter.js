@@ -1,4 +1,9 @@
-import { totalizar_neto, totalizar_con_impuesto, totalizar_con_descuento, totalizar_con_descuento_impuesto } from "./totalizar.js";
+import { 
+  totalizar_neto, 
+  totalizar_con_impuesto, 
+  totalizar_con_descuento, 
+  totalizar_con_descuento_impuesto, 
+  totalizar_con_impuesto_categoria } from "./totalizar.js";
 import { get_impuesto, get_valor_impuesto } from "./impuesto_por_estado.js";
 import { get_descuento, get_valor_descuento } from "./descuento.js";
 import { get_impuesto_por_categoria, get_valor_impuesto_por_categoria } from "./impuesto_por_categoria.js";
@@ -34,6 +39,8 @@ form.addEventListener("submit", (event) => {
   const tasa_por_categoria = get_impuesto_por_categoria(categoria);
   const valor_impuesto_por_categoria = get_valor_impuesto_por_categoria(precio_total, tasa_por_categoria);
 
+  const precio_total_impuesto_categoria = totalizar_con_impuesto_categoria(precio_total, valor_impuesto_por_categoria);
+
 
   // div.innerHTML = "<p>" + "cantidad: " + cantidad + "</p>" + 
   //                 "<p>" + "precio: " + precio + "</p>" + 
@@ -43,7 +50,8 @@ form.addEventListener("submit", (event) => {
                   "<p>" + "Impuesto para " + estado + " (%"+ tasa + "): " + valor_impuesto + "</p>" +
                   "<p>" + "Precio total (descuento e impuesto): $"+ precio_total + "</p>" +
                   //"<p>" + "Categoria de producto: "+ categoria + "</p>" +
-                  "<p>" + "Impuesto para " + categoria + " (%"+ tasa_por_categoria + "): "+ valor_impuesto_por_categoria + "</p>";
+                  "<p>" + "Impuesto para " + categoria + " (%"+ tasa_por_categoria + "): "+ valor_impuesto_por_categoria + "</p>" +
+                  "<p>" + "Precio total (impuesto por categoria): $"+ precio_total_impuesto_categoria + "</p>" ;
 
   });
   

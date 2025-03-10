@@ -2,6 +2,7 @@ import { totalizar_neto, get_valor_tasa, aplicar_impuesto, aplicar_descuento} fr
 import { get_impuesto } from "./impuesto_por_estado.js";
 import { get_descuento } from "./descuento.js";
 import { get_impuesto_por_categoria } from "./impuesto_por_categoria.js";
+import { get_descuento_por_categoria } from "./descuento_adicional_por_categoria";
 
 const cantidad_items = document.querySelector("#cant_item");
 const precio_items = document.querySelector("#precio_item");
@@ -31,8 +32,9 @@ form.addEventListener("submit", (event) => {
 
   const precio_total = aplicar_impuesto(total_descuento, valor_impuesto);
   const categoria = categoria_productos.options[categoria_productos.selectedIndex].text;
-  const tasa_por_categoria = get_impuesto_por_categoria(categoria);
-  const valor_impuesto_por_categoria = get_valor_tasa(precio_total, tasa_por_categoria);
+  const tasa_por_categoria_impuesto = get_impuesto_por_categoria(categoria);
+  const valor_impuesto_por_categoria = get_valor_tasa(precio_total, tasa_por_categoria_impuesto);
+  const tasa_por_categoria_descuento = get_descuento_por_categoria(categoria);
 
   const precio_total_impuesto_categoria = aplicar_impuesto(precio_total, valor_impuesto_por_categoria);
 
@@ -45,8 +47,9 @@ form.addEventListener("submit", (event) => {
                   "<p>" + "Impuesto para " + estado + " (%"+ tasa + "): " + valor_impuesto + "</p>" +
                   "<p>" + "Precio total (descuento e impuesto): $"+ precio_total + "</p>" +
                   //"<p>" + "Categoria de producto: "+ categoria + "</p>" +
-                  "<p>" + "Impuesto para " + categoria + " (%"+ tasa_por_categoria + "): "+ valor_impuesto_por_categoria + "</p>" +
-                  "<p>" + "Precio total (impuesto por categoria): $"+ precio_total_impuesto_categoria + "</p>" ;
+                  "<p>" + "Impuesto para " + categoria + " (%"+ tasa_por_categoria_impuesto + "): "+ valor_impuesto_por_categoria + "</p>" +
+                  "<p>" + "Precio total (impuesto por categoria): $"+ precio_total_impuesto_categoria + "</p>" +
+                  "<p>" + "Descuento adicional para " + categoria + " ("+ tasa_por_categoria_descuento + " %): " + "</p>" ;
 
   });
   

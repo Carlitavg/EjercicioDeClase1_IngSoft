@@ -47,12 +47,14 @@ form.addEventListener("submit", (event) => {
   div.innerHTML = "<p>"+ "Precio Neto: ("+ cantidad  + " * $" + precio + "): $"+ precio_neto+ "</p>" +
                   "<p>" + "Descuento (" + porcentaje_descuento + " %): " + valor_descuento +"</p>" +
                   "<p>" + "Impuesto para " + estado + " (%"+ tasa + "): " + valor_impuesto + "</p>" +
-                  "<p>" + "Precio total (descuento e impuesto): $"+ precio_total + "</p>" +
+                  "<p>" + "Precio total (descuento e impuesto) ("+ 
+                  precio_neto + " + " + valor_impuesto + " - " + valor_descuento + "): $"+ precio_total + "</p>" +
                   "<p>" + "Impuesto para " + categoria + " (%"+ tasa_por_categoria_impuesto + "): "+ valor_impuesto_por_categoria + "</p>" +
                   "<p>" + "Descuento adicional para " + categoria + " ("+ tasa_por_categoria_descuento + " %): " + valor_descuento_por_categoria + "</p>"+
                   // "<p>" + "Precio total (impuesto por categoria): $"+ precio_total_impuesto_categoria + "</p>" +
                   // "<p>" + "Precio total (descuento por categoria): $"+ precio_total_descuento_categoria + "</p>" +
-                  "<p>" + "Precio total (impuesto y descuento por categoria): $"+ precio_total_categoria + "</p>";
+                  "<p>" + "Precio total (impuesto y descuento por categoria) ("+ 
+                  precio_total + " + " + valor_impuesto_por_categoria + " - " + valor_descuento_por_categoria + "): $"+ precio_total_categoria + "</p>";
 
   });
   

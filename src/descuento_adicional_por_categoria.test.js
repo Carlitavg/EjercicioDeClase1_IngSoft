@@ -7,5 +7,8 @@ describe("Descuento adicional por categoria de producto", () => {
   it("para la categoria de producto bebidas alcolicas se aplica 0% de impuesto", () => {
     expect(get_descuento_por_categoria("Bebidas alcohólicas")).toEqual(0);
   });
-  
+  it("para la categoria de producto Material de escritorio se aplica 1.5% de impuesto", () => {
+    expect(get_descuento_por_categoria("Material de escritorio")).toEqual(1.5);
+  });
+
 });

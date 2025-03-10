@@ -38,6 +38,7 @@ form.addEventListener("submit", (event) => {
   const valor_descuento_por_categoria = get_valor_tasa(precio_total, tasa_por_categoria_descuento);
 
   const precio_total_impuesto_categoria = aplicar_impuesto(precio_total, valor_impuesto_por_categoria);
+  const precio_total_descuento_categoria = aplicar_descuento(precio_total, valor_descuento_por_categoria);
 
 
   // div.innerHTML = "<p>" + "cantidad: " + cantidad + "</p>" + 
@@ -47,10 +48,10 @@ form.addEventListener("submit", (event) => {
                   "<p>" + "Descuento (" + porcentaje_descuento + " %): " + valor_descuento +"</p>" +
                   "<p>" + "Impuesto para " + estado + " (%"+ tasa + "): " + valor_impuesto + "</p>" +
                   "<p>" + "Precio total (descuento e impuesto): $"+ precio_total + "</p>" +
-                  //"<p>" + "Categoria de producto: "+ categoria + "</p>" +
                   "<p>" + "Impuesto para " + categoria + " (%"+ tasa_por_categoria_impuesto + "): "+ valor_impuesto_por_categoria + "</p>" +
-                  "<p>" + "Descuento adicional para " + categoria + " ("+ tasa_por_categoria_descuento + " %): " + valor_descuento_por_categoria + "</p>" 
-                  "<p>" + "Precio total (impuesto por categoria): $"+ precio_total_impuesto_categoria + "</p>";
+                  "<p>" + "Descuento adicional para " + categoria + " ("+ tasa_por_categoria_descuento + " %): " + valor_descuento_por_categoria + "</p>"+
+                  "<p>" + "Precio total (impuesto por categoria): $"+ precio_total_impuesto_categoria + "</p>" +
+                  "<p>" + "Precio total (descuento por categoria): $"+ precio_total_descuento_categoria + "</p>";
 
   });
   

@@ -1,9 +1,4 @@
-import { 
-  totalizar_neto, 
-  totalizar_con_impuesto, 
-  totalizar_con_descuento, 
-  totalizar_con_descuento_impuesto, 
-  totalizar_con_impuesto_categoria } from "./totalizar.js";
+import { totalizar_neto, aplicar_impuesto, aplicar_descuento} from "./totalizar.js";
 import { get_impuesto, get_valor_impuesto } from "./impuesto_por_estado.js";
 import { get_descuento, get_valor_descuento } from "./descuento.js";
 import { get_impuesto_por_categoria, get_valor_impuesto_por_categoria } from "./impuesto_por_categoria.js";
@@ -27,19 +22,19 @@ form.addEventListener("submit", (event) => {
   
   const porcentaje_descuento = get_descuento (precio_neto);
   const valor_descuento = get_valor_descuento(porcentaje_descuento, precio_neto);
-  const total_descuento = totalizar_con_descuento(precio_neto, valor_descuento);
+  const total_descuento = aplicar_descuento(precio_neto, valor_descuento);
   console.log(total_descuento);
  
   const tasa = get_impuesto(estado);
   const valor_impuesto = Number(get_valor_impuesto(tasa, total_descuento).toFixed(2));
-  const total_impuesto = totalizar_con_impuesto(total_descuento, valor_impuesto);
+  const total_impuesto = aplicar_impuesto(total_descuento, valor_impuesto);
 
-  const precio_total = totalizar_con_descuento_impuesto(total_descuento, valor_impuesto);
+  const precio_total = aplicar_impuesto(total_descuento, valor_impuesto);
   const categoria = categoria_productos.options[categoria_productos.selectedIndex].text;
   const tasa_por_categoria = get_impuesto_por_categoria(categoria);
   const valor_impuesto_por_categoria = get_valor_impuesto_por_categoria(precio_total, tasa_por_categoria);
 
-  const precio_total_impuesto_categoria = totalizar_con_impuesto_categoria(precio_total, valor_impuesto_por_categoria);
+  const precio_total_impuesto_categoria = aplicar_impuesto(precio_total, valor_impuesto_por_categoria);
 
 
   // div.innerHTML = "<p>" + "cantidad: " + cantidad + "</p>" + 

@@ -24,9 +24,11 @@ describe("Impuesto por categoria de producto", () => {
   });
 
   it("para la categoria de producto alimentos retorna el valor de 0% segun el total de venta", () => {
-    expect(get_valor_impuesto_por_categoria(0.00, 0)).toEqual(0);
+    expect(get_valor_impuesto_por_categoria(0.00, 100)).toEqual(0.00);
   });
-  
+  it("para la categoria de producto bebidas alcolicas retorna el valor de 7% segun el total de venta", () => {
+    expect(get_valor_impuesto_por_categoria(7.00, 100)).toEqual(7.00);
+  });
 });
 
 

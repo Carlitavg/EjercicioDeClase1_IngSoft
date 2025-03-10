@@ -11,6 +11,6 @@ export function get_impuesto_por_categoria(codigo_producto){
     return impuesto[codigo_producto];
 }
 
-export function get_valor_impuesto_por_categoria(){
-    return 0;
+export function get_valor_impuesto_por_categoria(impuesto_por_categoria, total){
+    return Number(((impuesto_por_categoria / 100) * total).toFixed(2));
 }

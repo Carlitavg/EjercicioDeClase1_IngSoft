@@ -13,5 +13,8 @@ describe("Descuento adicional por categoria de producto", () => {
   it("para la categoria de producto Muebles se aplica 0% de descuento", () => {
     expect(get_descuento_por_categoria("Muebles")).toEqual(0);
   });
+  it("para la categoria de producto Electrónicos se aplica 1% de descuento", () => {
+    expect(get_descuento_por_categoria("Electrónicos")).toEqual(1);
+  });
 
 });

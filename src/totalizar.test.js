@@ -1,4 +1,9 @@
-import { totalizar_neto, totalizar_con_descuento, totalizar_con_impuesto, totalizar_con_descuento_impuesto } from "./totalizar.js";
+import { 
+  totalizar_neto, 
+  totalizar_con_descuento, 
+  totalizar_con_impuesto, 
+  totalizar_con_descuento_impuesto,
+  totalizar_con_impuesto_categoria } from "./totalizar.js";
 
 describe("Totalizar venta neta", () => {
   it("deberia Multiplicar dos numeros", () => {
@@ -51,5 +56,11 @@ describe("Totalizar venta total - descuento + impuesto", () => {
   });
   it("deberia totalizar la venta neta incluyendo el descuento y el impuesto", () => {
     expect(totalizar_con_descuento_impuesto(60, 3.75)).toEqual(63.75);
+  });
+});
+
+describe("Totalizar venta total + impuesto por categoria", () => {
+  it("deberia totalizar la venta total incluyendo el impuesto por categoria", () => {
+    expect(totalizar_con_impuesto_categoria(100, 7)).toEqual(107);
   });
 });

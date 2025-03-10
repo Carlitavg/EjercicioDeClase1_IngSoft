@@ -13,3 +13,7 @@ export function totalizar_con_descuento(neto, descuento) {
 export function totalizar_con_descuento_impuesto(total_descuento, impuesto) {
   return total_descuento + impuesto;
 }
+
+export function totalizar_con_impuesto_categoria(total, impuesto) {
+  return total + impuesto;
+}

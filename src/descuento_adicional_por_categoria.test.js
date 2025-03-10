@@ -19,5 +19,9 @@ describe("Descuento adicional por categoria de producto", () => {
   it("para la categoria de producto Vestimenta se aplica 0% de descuento", () => {
     expect(get_descuento_por_categoria("Vestimenta")).toEqual(0);
   });
+  it("para la categoria de producto Varios se aplica 0% de descuento", () => {
+    expect(get_descuento_por_categoria("Varios")).toEqual(0);
+  });
+
 
 });

@@ -10,3 +10,7 @@ export function get_impuesto_por_categoria(codigo_producto){
     };
     return impuesto[codigo_producto];
 }
+
+export function get_valor_impuesto_por_categoria(){
+    return 0;
+}

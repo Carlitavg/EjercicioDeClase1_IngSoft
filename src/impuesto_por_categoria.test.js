@@ -1,4 +1,4 @@
-import { get_impuesto_por_categoria } from "./impuesto_por_categoria";
+import { get_impuesto_por_categoria, get_valor_impuesto_por_categoria } from "./impuesto_por_categoria";
 
 describe("Impuesto por categoria de producto", () => {
   it("para la categoria de producto alimentos se aplica 0% de impuesto", () => {
@@ -22,6 +22,11 @@ describe("Impuesto por categoria de producto", () => {
   it("para la categoria de producto material de escritorio se aplica 0% de impuesto", () => {
     expect(get_impuesto_por_categoria("Varios")).toEqual(0);
   });
+
+  it("para la categoria de producto alimentos retorna el valor de 0% segun el total de venta", () => {
+    expect(get_valor_impuesto_por_categoria(0.00, 0)).toEqual(0);
+  });
+  
 });
 
 

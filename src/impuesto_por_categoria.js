@@ -1,4 +1,4 @@
-export function get_impuesto_por_categoria(codigo_producto){
+export function get_impuesto_por_categoria(categoria_producto){
     const impuesto = {
         'Alimentos': 0,
         'Bebidas alcohólicas': 7,
@@ -8,7 +8,7 @@ export function get_impuesto_por_categoria(codigo_producto){
         'Vestimenta': 2,
         'Varios': 0,
     };
-    return impuesto[codigo_producto];
+    return impuesto[categoria_producto];
 }
 
 //export function get_valor_impuesto_por_categoria(impuesto_por_categoria, total){

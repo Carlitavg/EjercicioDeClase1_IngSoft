@@ -10,6 +10,7 @@ const form = document.querySelector("#totalizador_form");
 const div = document.querySelector("#mostrar");
 const codigo_estados = document.querySelector("#cod_estados");
 const categoria_productos = document.querySelector("#categorias_productos");
+const peso_vol = document.querySelector("#peso_volumetrico");
 
 form.addEventListener("submit", (event) => {
   event.preventDefault();
@@ -17,6 +18,8 @@ form.addEventListener("submit", (event) => {
   const cantidad = Number.parseInt(cantidad_items.value);
   const precio = Number.parseInt(precio_items.value);
   const precio_neto = totalizar_neto(cantidad, precio);
+  const peso = Number.parseInt(peso_vol.value)
+
   console.log(precio_neto);
   
   const estado = codigo_estados.options[codigo_estados.selectedIndex].text;
@@ -54,7 +57,8 @@ form.addEventListener("submit", (event) => {
                   // "<p>" + "Precio total (impuesto por categoria): $"+ precio_total_impuesto_categoria + "</p>" +
                   // "<p>" + "Precio total (descuento por categoria): $"+ precio_total_descuento_categoria + "</p>" +
                   "<p>" + "Precio total (impuesto y descuento por categoria) ("+ 
-                  precio_total + " + " + valor_impuesto_por_categoria + " - " + valor_descuento_por_categoria + "): $"+ precio_total_categoria + "</p>";
+                  precio_total + " + " + valor_impuesto_por_categoria + " - " + valor_descuento_por_categoria + "): $"+ precio_total_categoria + "</p>" +
+                  "<p>" + "Peso volumétrico: " + peso + "</p>";
 
   });
   

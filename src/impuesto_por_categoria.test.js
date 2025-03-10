@@ -7,4 +7,7 @@ describe("Impuesto por categoria de producto", () => {
   it("para la categoria de producto bebidas alcolicas se aplica 7% de impuesto", () => {
     expect(get_impuesto_por_categoria("Bebidas alcohólicas")).toEqual(7);
   });
+  it("para la categoria de producto material de escritorio se aplica 0% de impuesto", () => {
+    expect(get_impuesto_por_categoria("Material de escritorio")).toEqual(0);
+  });
 });

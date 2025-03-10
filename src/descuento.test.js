@@ -1,4 +1,5 @@
-import {get_descuento, get_valor_descuento} from "./descuento.js";
+import {get_descuento} from "./descuento.js";
+import { get_valor_tasa } from "./totalizar.js";
 
 describe("Sumar", () => {
   it("deberia devolver 3% de descuento para montos iguales a 1000", () => {
@@ -42,8 +43,8 @@ describe("Sumar", () => {
     expect(get_descuento(100660)).toEqual(15);
   });
   it("deveria devolver el descuento del precio neto para valores q corresponda", () => {
-    expect(get_valor_descuento(get_descuento(1100), 1100)).toEqual(33);
-    expect(get_valor_descuento(get_descuento(10000), 10000)).toEqual(1000);
+    expect(get_valor_tasa(get_descuento(1100), 1100)).toEqual(33);
+    expect(get_valor_tasa(get_descuento(10000), 10000)).toEqual(1000);
   });
 
 });

@@ -17,9 +17,9 @@ export function get_descuento(precio) {
            precio >= 1000  ? 3  : 0;
   }
   
-  export function get_valor_descuento(porsentaje_descuento, valor_neto){
-    return (porsentaje_descuento / 100) * valor_neto
-  }
+  //export function get_valor_descuento(porsentaje_descuento, valor_neto){
+    //return (porsentaje_descuento / 100) * valor_neto
+  //}
 
 
   

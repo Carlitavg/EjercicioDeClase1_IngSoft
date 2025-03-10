@@ -11,7 +11,7 @@ export function get_impuesto(codigo_estado) {
     
   }
 
-export function get_valor_impuesto(impuesto, valor_neto){
-    return (impuesto / 100) * valor_neto
-  }
+//export function get_valor_impuesto(impuesto, valor_neto){
+    //return (impuesto / 100) * valor_neto
+  //}
 

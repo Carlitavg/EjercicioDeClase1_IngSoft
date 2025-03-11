@@ -1,3 +1,6 @@
 export function get_costo_envio(peso_volumetrico){
-    return 0;
+    if (peso_volumetrico > 10)
+        return 3.5;
+    else
+        return 0;
 }

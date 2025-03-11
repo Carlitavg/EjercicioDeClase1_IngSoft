@@ -1,4 +1,4 @@
-import { totalizar_neto, get_valor_tasa, aplicar_impuesto, aplicar_descuento,} from "./totalizar.js";
+import { totalizar_neto, get_valor_tasa, aplicar_impuesto, aplicar_descuento, sumar_costo_envio} from "./totalizar.js";
 import { get_impuesto } from "./impuesto_por_estado.js";
 import { get_descuento } from "./descuento.js";
 import { get_impuesto_por_categoria } from "./impuesto_por_categoria.js";
@@ -46,6 +46,9 @@ form.addEventListener("submit", (event) => {
   const precio_total_categoria = Number(aplicar_descuento(precio_total_impuesto_categoria, valor_descuento_por_categoria).toFixed(2));
 
   const costo_envio = get_costo_envio(peso);
+  const total_con_costo_envio = sumar_costo_envio(precio_total_categoria, costo_envio);
+
+
   // div.innerHTML = "<p>" + "cantidad: " + cantidad + "</p>" + 
   //                 "<p>" + "precio: " + precio + "</p>" + 
   //                 "<p>" + "Total neto: " + total + "</p>";
@@ -60,8 +63,9 @@ form.addEventListener("submit", (event) => {
                   // "<p>" + "Precio total (descuento por categoria): $"+ precio_total_descuento_categoria + "</p>" +
                   "<p>" + "Precio total (impuesto y descuento por categoria) ("+ 
                   precio_total + " + " + valor_impuesto_por_categoria + " - " + valor_descuento_por_categoria + "): $"+ precio_total_categoria + "</p>" +
-                  "<p>" + "Peso volumétrico: " + peso + "</p>" +
-                  "<p>" + "Costo de envio: $" + costo_envio + "</p>"; 
-
+                  //"<p>" + "Peso volumétrico: " + peso + "</p>" +
+                  //"<p>" + "Costo de envio: $" + costo_envio + "</p>" + 
+                  "<p>" + "Precio total (total y costo de envio) (" +
+                  precio_total_categoria + " + " + costo_envio + "): $" + total_con_costo_envio + "</p>";
   });
   

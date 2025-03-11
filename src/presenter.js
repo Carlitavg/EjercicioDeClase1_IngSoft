@@ -4,6 +4,8 @@ import { get_descuento } from "./descuento.js";
 import { get_impuesto_por_categoria } from "./impuesto_por_categoria.js";
 import { get_descuento_por_categoria } from "./descuento_adicional_por_categoria.js";
 import { get_costo_envio } from "./costo_envio.js";
+import { get_descuento_tipoCliente } from "./descuento_envio_por_tipoCliente.js";
+import { get_descuento_tipoCliente } from "./descuento_envio_por_tipoCliente.js";
 
 const cantidad_items = document.querySelector("#cant_item");
 const precio_items = document.querySelector("#precio_item");
@@ -50,6 +52,7 @@ form.addEventListener("submit", (event) => {
   const total_con_costo_envio = sumar_costo_envio(precio_total_categoria, costo_envio);
 
   const tipoCliente = tipos_clientes.options[tipos_clientes.selectedIndex].text;
+  const tasa_descuento_por_tipoCliente = get_descuento_tipoCliente(tipoCliente);
 
 
   // div.innerHTML = "<p>" + "cantidad: " + cantidad + "</p>" + 
@@ -70,6 +73,6 @@ form.addEventListener("submit", (event) => {
                   //"<p>" + "Costo de envio: $" + costo_envio + "</p>" + 
                   "<p>" + "Precio total (total y costo de envio) (" +
                   precio_total_categoria + " + " + costo_envio + "): $" + total_con_costo_envio + "</p>" +
-                  "<p>" + "Descuento en envio para Cliente '" + tipoCliente + "' " + "</p>";
+                  "<p>" + "Descuento en envio para Cliente '" + tipoCliente + "' (" + tasa_descuento_por_tipoCliente +" %)"+ "</p>";
   });
   

@@ -51,9 +51,12 @@ form.addEventListener("submit", (event) => {
   const costo_envio = get_costo_envio(peso);
   const total_con_costo_envio = sumar_costo_envio(precio_total_categoria, costo_envio);
 
+
   const tipoCliente = tipos_clientes.options[tipos_clientes.selectedIndex].text;
   const tasa_descuento_por_tipoCliente = get_descuento_tipoCliente(tipoCliente);
   const valor_descuento_por_tipoCliente = get_valor_tasa(costo_envio, tasa_descuento_por_tipoCliente);
+
+  const total_con_descuento_envio_tipoCliente = aplicar_descuento(total_con_costo_envio, valor_descuento_por_tipoCliente);
 
 
   // div.innerHTML = "<p>" + "cantidad: " + cantidad + "</p>" + 
@@ -72,8 +75,8 @@ form.addEventListener("submit", (event) => {
                   precio_total + " + " + valor_impuesto_por_categoria + " - " + valor_descuento_por_categoria + "): $"+ precio_total_categoria + "</p>" +
                   //"<p>" + "Peso volumétrico: " + peso + "</p>" +
                   //"<p>" + "Costo de envio: $" + costo_envio + "</p>" + 
-                  "<p>" + "Precio total (total y costo de envio) (" +
-                  precio_total_categoria + " + " + costo_envio + "): $" + total_con_costo_envio + "</p>" +
-                  "<p>" + "Descuento en envio para Cliente '" + tipoCliente + "' (" + tasa_descuento_por_tipoCliente +" %): "+ valor_descuento_por_tipoCliente + "</p>";
+                  "<p>" + "Descuento en envio para Cliente '" + tipoCliente + "' (" + tasa_descuento_por_tipoCliente +" %): "+ valor_descuento_por_tipoCliente + "</p>" +
+                  "<p>" + "Precio total (total y costo de envio - descuento Envio) (" +
+                  precio_total_categoria + " + " + costo_envio + " - " + valor_descuento_por_tipoCliente + "): $" + total_con_descuento_envio_tipoCliente + "</p>" ;
   });
   

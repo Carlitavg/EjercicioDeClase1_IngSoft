@@ -1,5 +1,5 @@
 import { 
-  totalizar_neto, aplicar_impuesto, aplicar_descuento } from "./totalizar.js";
+  totalizar_neto, aplicar_impuesto, aplicar_descuento, sumar_costo_envio } from "./totalizar.js";
 
 describe("Totalizar venta neta", () => {
   it("deberia Multiplicar dos numeros", () => {
@@ -58,5 +58,11 @@ describe("Totalizar venta total - descuento + impuesto", () => {
 describe("Totalizar venta total + impuesto por categoria", () => {
   it("deberia totalizar la venta total incluyendo el impuesto por categoria", () => {
     expect(aplicar_impuesto(100, 7)).toEqual(107);
+  });
+});
+
+describe("Totalizar venta total + costo de envio", () => {
+  it("deberia totalizar la venta total incluyendo el costo de envio", () => {
+    expect(sumar_costo_envio(200, 8)).toEqual(208);
   });
 });

@@ -13,3 +13,7 @@ export function aplicar_impuesto(monto, impuesto) {
 export function aplicar_descuento(monto, descuento) {
   return monto - descuento;
 }
+
+export function sumar_costo_envio(monto, costo) {
+  return monto + costo;
+}

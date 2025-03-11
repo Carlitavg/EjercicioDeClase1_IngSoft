@@ -5,7 +5,6 @@ import { get_impuesto_por_categoria } from "./impuesto_por_categoria.js";
 import { get_descuento_por_categoria } from "./descuento_adicional_por_categoria.js";
 import { get_costo_envio } from "./costo_envio.js";
 import { get_descuento_tipoCliente } from "./descuento_envio_por_tipoCliente.js";
-import { get_descuento_tipoCliente } from "./descuento_envio_por_tipoCliente.js";
 
 const cantidad_items = document.querySelector("#cant_item");
 const precio_items = document.querySelector("#precio_item");
@@ -48,7 +47,7 @@ form.addEventListener("submit", (event) => {
   const precio_total_descuento_categoria = aplicar_descuento(precio_total, valor_descuento_por_categoria);
   const precio_total_categoria = Number(aplicar_descuento(precio_total_impuesto_categoria, valor_descuento_por_categoria).toFixed(2));
 
-  const costo_envio = get_costo_envio(peso);
+  const costo_envio = get_costo_envio(cantidad, peso);
   const total_con_costo_envio = sumar_costo_envio(precio_total_categoria, costo_envio);
 
 

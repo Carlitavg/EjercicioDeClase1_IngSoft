@@ -66,3 +66,4 @@ describe("Totalizar venta total + costo de envio", () => {
     expect(sumar_costo_envio(200, 8)).toEqual(208);
   });
 });
+

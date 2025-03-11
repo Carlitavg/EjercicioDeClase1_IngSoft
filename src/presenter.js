@@ -12,6 +12,7 @@ const div = document.querySelector("#mostrar");
 const codigo_estados = document.querySelector("#cod_estados");
 const categoria_productos = document.querySelector("#categorias_productos");
 const peso_vol = document.querySelector("#peso_volumetrico");
+const tipos_clientes = document.querySelector("#tipo_cliente");
 
 form.addEventListener("submit", (event) => {
   event.preventDefault();
@@ -48,6 +49,8 @@ form.addEventListener("submit", (event) => {
   const costo_envio = get_costo_envio(peso);
   const total_con_costo_envio = sumar_costo_envio(precio_total_categoria, costo_envio);
 
+  const tipoCliente = tipos_clientes.options[tipos_clientes.selectedIndex].text;
+
 
   // div.innerHTML = "<p>" + "cantidad: " + cantidad + "</p>" + 
   //                 "<p>" + "precio: " + precio + "</p>" + 
@@ -66,6 +69,7 @@ form.addEventListener("submit", (event) => {
                   //"<p>" + "Peso volumétrico: " + peso + "</p>" +
                   //"<p>" + "Costo de envio: $" + costo_envio + "</p>" + 
                   "<p>" + "Precio total (total y costo de envio) (" +
-                  precio_total_categoria + " + " + costo_envio + "): $" + total_con_costo_envio + "</p>";
+                  precio_total_categoria + " + " + costo_envio + "): $" + total_con_costo_envio + "</p>" +
+                  "<p>" + "Descuento en envio para Cliente '" + tipoCliente + "' " + "</p>";
   });
   

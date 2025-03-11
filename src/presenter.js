@@ -55,7 +55,7 @@ form.addEventListener("submit", (event) => {
   const tasa_descuento_por_tipoCliente = get_descuento_tipoCliente(tipoCliente);
   const valor_descuento_por_tipoCliente = get_valor_tasa(costo_envio, tasa_descuento_por_tipoCliente);
 
-  const total_con_descuento_envio_tipoCliente = aplicar_descuento(total_con_costo_envio, valor_descuento_por_tipoCliente);
+  const total_con_descuento_envio_tipoCliente = Number(aplicar_descuento(total_con_costo_envio, valor_descuento_por_tipoCliente).toFixed(2));
 
 
   // div.innerHTML = "<p>" + "cantidad: " + cantidad + "</p>" + 

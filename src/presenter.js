@@ -74,9 +74,9 @@ form.addEventListener("submit", (event) => {
                   "<p>" + "Precio total (impuesto y descuento por categoria) ("+ 
                   precio_total + " + " + valor_impuesto_por_categoria + " - " + valor_descuento_por_categoria + "): $"+ precio_total_categoria + "</p>" +
                   //"<p>" + "Peso volumétrico: " + peso + "</p>" +
-                  //"<p>" + "Costo de envio: $" + costo_envio + "</p>" + 
+                  "<p>" + "Costo de envio: $" + costo_envio + "</p>" + 
                   "<p>" + "Descuento en envio para Cliente '" + tipoCliente + "' (" + tasa_descuento_por_tipoCliente +" %): "+ valor_descuento_por_tipoCliente + "</p>" +
-                  "<p>" + "Precio total (total y costo de envio - descuento Envio) (" +
+                  "<p>" + "Precio total (total + costo de envio - descuento Envio) (" +
                   precio_total_categoria + " + " + costo_envio + " - " + valor_descuento_por_tipoCliente + "): $" + total_con_descuento_envio_tipoCliente + "</p>" ;
   });
   

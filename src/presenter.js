@@ -5,6 +5,7 @@ import { get_impuesto_por_categoria } from "./impuesto_por_categoria.js";
 import { get_descuento_por_categoria } from "./descuento_adicional_por_categoria.js";
 import { get_costo_envio } from "./costo_envio.js";
 import { get_descuento_tipoCliente } from "./descuento_envio_por_tipoCliente.js";
+import { get_descuento_beneficio } from "./descuento_por_beneficio.js";
 
 const cantidad_items = document.querySelector("#cant_item");
 const precio_items = document.querySelector("#precio_item");
@@ -57,7 +58,9 @@ form.addEventListener("submit", (event) => {
 
   const total_con_descuento_envio_tipoCliente = Number(aplicar_descuento(total_con_costo_envio, valor_descuento_por_tipoCliente).toFixed(2));
 
-
+  const descuento_benficio = get_descuento_beneficio(tipoCliente, precio_neto, categoria);
+  const total_con_decuento_beneficio = aplicar_descuento(total_con_descuento_envio_tipoCliente, descuento_benficio);
+  
   // div.innerHTML = "<p>" + "cantidad: " + cantidad + "</p>" + 
   //                 "<p>" + "precio: " + precio + "</p>" + 
   //                 "<p>" + "Total neto: " + total + "</p>";
@@ -76,6 +79,8 @@ form.addEventListener("submit", (event) => {
                   "<p>" + "Costo de envio: $" + costo_envio + "</p>" + 
                   "<p>" + "Descuento en envio para Cliente '" + tipoCliente + "' (" + tasa_descuento_por_tipoCliente +" %): "+ valor_descuento_por_tipoCliente + "</p>" +
                   "<p>" + "Precio total (total + costo de envio - descuento Envio) (" +
-                  precio_total_categoria + " + " + costo_envio + " - " + valor_descuento_por_tipoCliente + "): $" + total_con_descuento_envio_tipoCliente + "</p>" ;
+                  precio_total_categoria + " + " + costo_envio + " - " + valor_descuento_por_tipoCliente + "): $" + total_con_descuento_envio_tipoCliente + "</p>" +
+                  "<p>" + "Precio total (total - descuento por beneficio) (" + total_con_descuento_envio_tipoCliente + " - " + descuento_benficio + "): " +
+                  total_con_decuento_beneficio;
   });
   

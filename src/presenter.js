@@ -2,7 +2,7 @@ import { totalizar_neto, get_valor_tasa, aplicar_impuesto, aplicar_descuento} fr
 import { get_impuesto } from "./impuesto_por_estado.js";
 import { get_descuento } from "./descuento.js";
 import { get_impuesto_por_categoria } from "./impuesto_por_categoria.js";
-import { get_descuento_por_categoria } from "./descuento_adicional_por_categoria";
+import { get_descuento_por_categoria } from "./descuento_adicional_por_categoria.js";
 
 const cantidad_items = document.querySelector("#cant_item");
 const precio_items = document.querySelector("#precio_item");
@@ -42,7 +42,7 @@ form.addEventListener("submit", (event) => {
 
   const precio_total_impuesto_categoria = aplicar_impuesto(precio_total, valor_impuesto_por_categoria);
   const precio_total_descuento_categoria = aplicar_descuento(precio_total, valor_descuento_por_categoria);
-  const precio_total_categoria = aplicar_descuento(precio_total_impuesto_categoria, valor_descuento_por_categoria)
+  const precio_total_categoria = Number(aplicar_descuento(precio_total_impuesto_categoria, valor_descuento_por_categoria).toFixed(2));
 
   // div.innerHTML = "<p>" + "cantidad: " + cantidad + "</p>" + 
   //                 "<p>" + "precio: " + precio + "</p>" + 

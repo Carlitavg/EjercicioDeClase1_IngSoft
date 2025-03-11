@@ -13,4 +13,16 @@ describe("Calcular el costo de envio", () => {
   it("deberia calcular el costo de envio segun peso volumetrico", () => {
     expect(get_costo_envio(25)).toEqual(5);
   });
+  it("deberia calcular el costo de envio segun peso volumetrico", () => {
+    expect(get_costo_envio(50)).toEqual(6);
+  });
+  it("deberia calcular el costo de envio segun peso volumetrico", () => {
+    expect(get_costo_envio(88)).toEqual(6.5);
+  });
+  it("deberia calcular el costo de envio segun peso volumetrico", () => {
+    expect(get_costo_envio(144)).toEqual(8);
+  });
+  it("deberia calcular el costo de envio segun peso volumetrico", () => {
+    expect(get_costo_envio(202)).toEqual(9);
+  });
 });
